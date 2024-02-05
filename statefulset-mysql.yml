@@ -10,7 +10,7 @@ spec:
   azureDisk:
     kind: Managed
     diskName: sql-server-disk
-    diskURI: <YOUR_AZURE_DISK_URI>
+    diskURI: managed-csi
     fsType: ext4
 ---
 apiVersion: v1
@@ -57,7 +57,7 @@ spec:
       name: sql-server-storage
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: ""
+      storageClassName: "managed-csi"
       resources:
         requests:
           storage: 50Gi
