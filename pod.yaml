@@ -9,6 +9,15 @@ spec:
     - name: web
       image: nginx
       ports:
-        - name: web
+        - name: http
           containerPort: 80
+          protocol: TCP
+        - name: https
+          containerPort: 443
+          protocol: TCP
+    - name: agent
+      image: nginx
+      ports:
+        - name: web
+          containerPort: 8080
           protocol: TCP
