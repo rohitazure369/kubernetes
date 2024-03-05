@@ -18,6 +18,6 @@ spec:
     - name: agent
       image: nginx
       ports:
-        - name: web
+        - name: http
           containerPort: 80
           protocol: TCP
