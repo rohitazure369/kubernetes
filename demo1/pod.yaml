@@ -1,23 +1,17 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: webserver
+  name: multi-container-pod
   labels:
-    app: nginx-app
+    app: multi-containerPod
 spec:
   containers:
-    - name: web
-      image: nginx
-      ports:
-        - name: http
-          containerPort: 80
-          protocol: TCP
-        - name: https
-          containerPort: 443
-          protocol: TCP
-    - name: agent
-      image: nginx
-      ports:
-        - name: http
-          containerPort: 80
-          protocol: TCP
+  - name: container1
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+  - name: container2
+    image: busybox:latest
+    command: ["sleep", "3600"]
+    ports:
+    - containerPort: 8080
